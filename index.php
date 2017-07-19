@@ -1,8 +1,7 @@
-<?php require 'config.php'?>
-
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+	<meta charset="UTF-8">
 	<title>Envio de emails</title>
 	<link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css ">

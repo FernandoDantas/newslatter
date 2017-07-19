@@ -21,7 +21,19 @@ $( document ).ready(function() {
 		
 			success: function(retorno){
 				
-				console.log(retorno);
+				if(retorno == 'usercadastrado'){
+					var message = '<div class="ui green message">';
+					message += '<p>Cadastrado com sucesso !!!</p>'
+					message += '</div>';
+					
+					mensagem.html(message);
+					
+					setTimeout(function(){
+						mensagem.fadeOut('slow');
+						form_cadastrar_user[0].reset();
+					},3000)
+					
+				}
 			}
 			
 		});
