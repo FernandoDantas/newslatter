@@ -39,10 +39,10 @@
 	<br>
 	
 	<div id="carregando-emails"></div>
-	<div id="emails-enviados"></div>
+	<div id="emails_enviados"></div>
 	<br>
 	<br>
-	<div id="enviado-para"></div>
+	<div id="enviado_para"></div>
 	
 	</form>
 
