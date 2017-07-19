@@ -1,33 +1,30 @@
 <?php 
 
-require '../config.php';
+require "../config.php";
 
 use Acme\Models\User;
 use Acme\Classes\Email;
 
-$email = new Email;
-$user = new User;
+$email = new Email();
+$users = new User();
 
-$emails = $user->listar();
+$emails = $users->listar();
 
-$para = isset($emails[$_POST['i']]->email) ? $emails[$_POST['i']]->email : 'null';
+$para = (isset($emails[$_POST['i']]->email)) ? $emails[$_POST['i']]->email : 'null';
 $email->setQuem('falecom@myapk.com.br');
 $email->setPara($para);
 $email->setAssunto($_POST['assunto']);
 $email->setMensagem($_POST['mensagem']);
 
-if($email->enviarEmail()){
-	echo 'E-Mail enviado para '.$emails[$_POST['i']]->email;
+if(isset($emails[$_POST['i']]->email) and !filter_var($emails[$_POST['i']]->email, FILTER_VALIDATE_EMAIL)){
+	echo json_encode(['status' => 'erro','email'=> $emails[$_POST['i']]->email]);
 }else{	
-	//var_dump($emails);
-	var_dump($email);
-	if(($_POST['i']+1) < count($emails)){
-		echo 'erro';
+	if($email->enviarEmail()){
+		echo json_encode('E-mail enviado para '.$emails[$_POST['i']]->email);
 	}else{
-		echo 'fim';
+		echo json_encode(['status' => 'fim']);
 	}
-	
-	
 }
 
 ?>
+
