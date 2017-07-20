@@ -15,5 +15,6 @@ return array(
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'Acme\\Models\\' => array($baseDir . '/Acme/Models'),
+    'Acme\\Interfaces\\' => array($baseDir . '/Acme/Interfaces'),
     'Acme\\Classes\\' => array($baseDir . '/Acme/Classes'),
 );

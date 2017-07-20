@@ -10,7 +10,7 @@
 
 <div class="ui container">
 <br>
-<a href="/newsletter.php" class="mini ui blue button"><i class="fa fa-envelope"></i> Enviar newsletter</a>
+<a href="login.php" class="mini ui blue button"><i class="fa fa-envelope"></i> Enviar newsletter</a>
 
 <div id="mensagem" style="margin-top: 10px;"></div>
 

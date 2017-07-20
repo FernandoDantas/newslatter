@@ -12,16 +12,17 @@
 
 <div class="ui container">
 	<br>
-	<a href="/" class="mini ui blue button"><i class="fa fa-user"></i> Voltar para o inicio</a>
+	<a href="logout.php" class="mini ui blue button"><i class="fa fa-lock"></i> Sair</a>
 
 	<?php 
 	
-	$user = new Acme\Models\User;
+	$user = new Acme\Models\User;	
 	$users = $user->listar();	
+	$bloquear = new Acme\Classes\Block;
+	$bloquear->block();
 	?>
 	
-	<h3>Enviar email para <?php echo count($users);?> usuários</h3>
-	
+	<h3>Enviar email para <?php echo count($users);?> usuários</h3>	
 	<form action="" class="ui form" id="form-newsletter">
 	
 	<div class="field">

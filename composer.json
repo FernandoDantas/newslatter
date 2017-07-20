@@ -1,12 +1,13 @@
 {
 	"require" : {
 		"symfony/var-dumper" : "^3.3",
-		"phpmailer/phpmailer": "^5.2"
+		"phpmailer/phpmailer" : "^5.2"
 	},
 	"autoload" : {
 		"psr-4" : {
 			"Acme\\Classes\\" : "Acme/Classes",
-			"Acme\\Models\\" : "Acme/Models"
+			"Acme\\Models\\" : "Acme/Models",
+			"Acme\\Interfaces\\" : "Acme/Interfaces"
 		}
 	}
 }

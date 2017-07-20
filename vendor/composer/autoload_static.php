@@ -40,6 +40,7 @@ class ComposerStaticInitb3f6a3a63d71fac8ea45c2383cb5da80
         'A' => 
         array (
             'Acme\\Models\\' => 12,
+            'Acme\\Interfaces\\' => 16,
             'Acme\\Classes\\' => 13,
         ),
     );
@@ -80,6 +81,10 @@ class ComposerStaticInitb3f6a3a63d71fac8ea45c2383cb5da80
         'Acme\\Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Acme/Models',
+        ),
+        'Acme\\Interfaces\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Acme/Interfaces',
         ),
         'Acme\\Classes\\' => 
         array (
