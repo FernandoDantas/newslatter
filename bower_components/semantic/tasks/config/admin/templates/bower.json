@@ -7,7 +7,13 @@
     "web"  : "http://www.jacklukic.com"
   },
   "ignore": [
-    "./index.js"
+    "./index.js",
+    "docs",
+    "node",
+    "server",
+    "spec",
+    "src",
+    "test"
   ],
   "keywords": [
     "semantic",
@@ -18,7 +24,7 @@
   "license" : [
     "http://semantic-ui.mit-license.org/"
   ],
-  "ignore": [
+  "ignoree": [
     "docs",
     "node",
     "server",

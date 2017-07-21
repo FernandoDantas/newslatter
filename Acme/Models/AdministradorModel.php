@@ -2,18 +2,15 @@
 
 namespace Acme\Models;
 
-use Acme\Models\Model;
+use Acme\Interfaces\Ilogin;
+use Acme\Models\AppModel;
 
-class AdministradorModel extends Model{
+class AdministradorModel extends AppModel implements Ilogin{
 	
-	public $table = 'tb_administrador';
-	public $id_session = 'id_admin';
-	public $logged = 'logado_admin';
+	static $table_name = 'tb_administrador';
 	
-	public function create($attributes){
-		
-	}
-	public function update($id,$attributes){
-		
+	public function logar($email,$password){
+		$administrador = parent::find('first',['conditions'=>['tb_administrador_email=? and tb_admin_password=?',$email,$password]]);
+		return (count($administrador) == 1) ? true : false;
 	}
 }

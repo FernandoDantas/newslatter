@@ -1,51 +1,12 @@
-<?php
-
+<?php 
 require 'config.php';
 
-use Acme\Classes\Login;
-//use Acme\Classes\Password;
-use Acme\Classes\Filters;
-use Acme\Models\AdministradorModel;
-use Acme\Classes\Redirect;
-
-//$password = new Password;
-//dump($password->hash('123456'));
-$erro = null;
-if(isset($_POST['admin_logar'])){
-	
-	$filter = new Filters();
-	
-	$email = $filter->string($_POST['email']);
-	$password = $filter->string($_POST['password']);
-	
-	
-	$administrador = new AdministradorModel;
-	$admin = $administrador->find('email', $email);
-	
-	
-	if($admin){
-		$login = new Login();
-		$logado = $login->verificarLogin($password,$admin->password);
-		
-		if($logado){
-			$_SESSION['name'] = $admin->name;
-			$_SESSION['id'] = $admin->id;
-			$_SESSION['logado'] = true;
-			//header('Location:/newsletter.php');
-			//session_regenerate_id();
-			return Redirect::redirect('/newsletter.php');
-		}else{
-			$erro = 'Ocorreu um erro ao logar';
-		}
-		
-	}else{
-		$erro = 'Ocorreu um erro ao logar';
-		
-	}	
-	
-}
+//$password = new Acme\Classes\Password;
+//$senha = $password->hash('123456');
+//dump($senha);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,14 +53,7 @@ if(isset($_POST['admin_logar'])){
 
  <div class="ui middle aligned center aligned grid">
   <div class="column">
-  <?php 
   
-  if ($erro != null):
-  	echo '<div class="ui negative message">
-               <p>'.$erro.'</p>
-		  </div>';
-  endif;
-  ?>
     <h2 class="ui teal image header">
       <img src="assets/images/login.png" class="image">
       <div class="content">
@@ -109,17 +63,18 @@ if(isset($_POST['admin_logar'])){
     <form class="ui large form" method="post" action="">
       <div class="ui stacked segment">
         <div class="field">
+        <input type="hidden" name="logar">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="email" placeholder="E-mail*">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
-            <input type="hidden" name="admin_logar">
+            <input type="password" name="password" placeholder="Senha*">            
           </div>
+          
         </div>
         <div class="ui fluid large blue submit button">Logar</div>
       </div>
@@ -149,11 +104,11 @@ if(isset($_POST['admin_logar'])){
               rules: [
                 {
                   type   : 'empty',
-                  prompt : 'Please enter your e-mail'
+                  prompt : 'Por favor informe seu e-mail'
                 },
                 {
                   type   : 'email',
-                  prompt : 'Please enter a valid e-mail'
+                  prompt : 'Por favor informe um e-mail válido'
                 }
               ]
             },
@@ -162,11 +117,11 @@ if(isset($_POST['admin_logar'])){
               rules: [
                 {
                   type   : 'empty',
-                  prompt : 'Please enter your password'
+                  prompt : 'Por favor informe sua senha'
                 },
                 {
                   type   : 'length[6]',
-                  prompt : 'Your password must be at least 6 characters'
+                  prompt : 'Sua senha deve ter no minimo 6 caracteres'
                 }
               ]
             }

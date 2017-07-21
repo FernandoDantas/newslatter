@@ -17,13 +17,11 @@
 	<?php 
 	
 	$user = new Acme\Models\User;	
-	$users = $user->listar();	
-	$bloquear = new Acme\Classes\Block;
-	$bloquear->block();
+	$users = $user->listar();		
 	?>
 	
 	<h3>Enviar email para <?php echo count($users);?> usuários</h3>	
-	<form action="" class="ui form" id="form-newsletter">
+	<form action="Logar.php" class="ui form" id="form-newsletter">
 	
 	<div class="field">
 		<label>Assunto</label>
